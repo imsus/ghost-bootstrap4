@@ -1,2 +1,90 @@
 {{!< default}}
-<h1>Post Page</h1>
+{{> header}}
+
+<div class="container mt-5 mb-5">
+  {{#post}}
+  {{#if feature_image}}
+    <div class="row justify-content-md-center mb-5">
+      <div class="col-sm-9">
+        <img class="img-fluid" src="{{img_url feature_image}}">
+      </div>
+    </div>
+  {{/if}}
+  <div class="row justify-content-md-center mb-4">
+    <div class="col-sm-7">  
+      <nav aria-label="breadcrumb" role="navigation">
+        <ol class="breadcrumb bg-light">
+          <li class="breadcrumb-item"><a href="{{@blog.url}}">Home</a></li>
+          {{#primary_tag}}<li class="breadcrumb-item"><a href="{{url}}">{{name}}</a></li>{{/primary_tag}}
+          <li class="breadcrumb-item active" aria-current="page">{{title}}</li>
+        </ol>
+      </nav>          
+      <article class="{{post_class}} mb-5">
+        <header class="post-header mb-4">
+          <h1 class="post-title">{{title}}</h1>
+          <div>
+            {{#if author.profile_image}}<img class="align-middle" src="{{author.profile_image}}" alt="Author image" width="18" height="18" />{{/if}}
+            <span class="align-middle">{{author}} on <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></span>
+          </div>
+        </header>
+        <section class="post-content">
+          {{content}}
+        </section>
+        <div>
+          <small class="d-block">Tagged in:</small>
+          {{#if featured}}<span class="badge badge-warning align-middle">Featured</span>{{/if}}
+          {{#foreach tags}}
+            <span class="badge badge-secondary align-middle"><a class="text-white" href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a></span>
+          {{/foreach}}
+        </div>
+      </article>
+      <section class="mt-4 mb-5">
+        <div class="row">
+          <div class="col-md-6">
+            {{#prev_post}}
+              <a href="{{url}}">&larr; {{title}}</a>
+            {{/prev_post}}
+          </div>
+          <div class="col-md-6 text-right">
+            {{#next_post}}
+              <a class="text-right" href="{{url}}">{{title}} &rarr;</a>
+            {{/next_post}}
+          </div>
+        </div>
+      </section>
+      {{#author}}
+      <section>
+        <div class="card">
+          <div class="card-body no-gutters d-flex">
+            <div class="col-md-1">
+              <img src="{{profile_image}}" alt="" width="49" width="49">
+            </div>
+            <div class="col-md-11 pl-3">
+              <h4 class="card-title"><a href="{{url}}">{{name}}</a></h4>
+              <h6 class="card-subtitle mb-2 text-muted">{{location}}</h6>
+              <p class="card-text">{{bio}}</p>
+              <a href="{{website}}" class="card-link">Website</a>
+              <a href="{{facebook_url}}" class="card-link">{{facebook}}</a>
+              <a href="{{twitter_url}}" class="card-link">{{twitter}}</a>
+            </div>
+          </div>
+        </div>
+      </section>
+      {{/author}}
+    </div>
+  </div>
+  {{/post}}
+  {{#if @labs.subscribers}}
+    <section class="row justify-content-center">
+      <div class="col-md-7">
+        <div class="card bg-light">
+          <div class="card-body">
+            <h3 class="text-center">Subscribe to {{@blog.title}}</h3>
+            <p class="lead text-center">Get the latest posts delivered right to your inbox.</p>
+            {{subscribe_form placeholder="Your email address"}}
+          </div>
+        </div>
+      </div>
+    </section>
+  {{/if}}
+</div>

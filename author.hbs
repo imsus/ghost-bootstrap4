@@ -1,18 +1,31 @@
 {{!< default}}
 {{> header}}
 
-{{#is "home"}}
+{{#author}}
   <section class="bg-light pt-4 pb-4">
     <div class="container">
       <div class="row justify-content-center">
         <div class="col-sm-7">
-          <h1 class="text-center">{{@blog.title}}</h1>
-          <p class="text-center lead">{{@blog.description}}</p>
+          <div class="card">
+            <div class="card-body no-gutters d-flex">
+              <div class="col-md-1">
+                <img src="{{profile_image}}" alt="" width="49" width="49">
+              </div>
+              <div class="col-md-11 pl-3">
+                <h4 class="card-title">{{name}}</h4>
+                <h6 class="card-subtitle mb-2 text-muted">{{location}}</h6>
+                <p class="card-text">{{bio}}</p>
+                <a href="{{website}}" class="card-link">Website</a>
+                <a href="{{facebook_url}}" class="card-link">{{facebook}}</a>
+                <a href="{{twitter_url}}" class="card-link">{{twitter}}</a>
+              </div>
+            </div>
+          </div>
         </div>
       </div>
     </div>
   </section>
-{{/is}}
+{{/author}}
 
 <div class="container mt-5 mb-5">
   <div class="row justify-content-md-center mb-4">

@@ -1,0 +1,21 @@
+<form method="post" action="{{action}}" class="{{form_class}}">
+    {{! This is required for the form to work correctly }}
+    {{hidden}}
+
+    <div class="form-group{{#if error}} error{{/if}}">
+      <label for="exampleInputEmail1">Email address</label>
+      <div class="input-group">
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Your email address" name="email">
+        <span class="input-group-btn">
+          <button class="btn btn-primary {{button_class}}" type="submit">Subscribe</button>
+        </span>
+      </div>
+      <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+    </div>
+    {{! This is used to get extra info about where this subscriber came from }}
+    {{script}}
+</form>
+
+{{#if error}}
+    <p class="main-error">{{{error.message}}}</p>
+{{/if}}
