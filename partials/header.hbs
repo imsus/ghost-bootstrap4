@@ -6,15 +6,9 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-md-center" id="navbarSupportedContent">
-        {{navigation}}
-        <form class="form-inline my-2 my-lg-0">
-          <div class="input-group">
-            <input type="text" class="form-control" placeholder="Search for..." aria-label="Search for...">
-            <span class="input-group-btn">
-              <button class="btn btn-secondary" type="button">Go!</button>
-            </span>
-          </div>
-        </form>
+      {{navigation}}
+      <a class="btn btn-link" href="{{facebook_url @blog.facebook}}">{{@blog.facebook}}</a>
+      <a class="btn btn-link" href="{{twitter_url @blog.twitter}}">{{@blog.twitter}}</a>
     </div>
   </div>
 </nav>
