@@ -2,13 +2,13 @@
   <nav class="col-md-7 d-flex justify-content-between row no-gutters align-items-center" role="navigation">
     <div class="col-4">
       {{#if prev}}
-        <a class="btn btn-outline-primary" href="{{page_url prev}}">&larr; Newer Posts</a>
+        <a class="btn btn-outline-dark" href="{{page_url prev}}">&larr; Prev</a>
       {{/if}}
     </div>
     <div class="col-4 text-center"><span class="page-number">Page {{page}} of {{pages}}</span></div>
     <div class="col-4 text-right">
       {{#if next}}
-        <a class="btn btn-primary" href="{{page_url next}}">Older Posts &rarr;</a>
+        <a class="btn btn-dark" href="{{page_url next}}">Next &rarr;</a>
       {{/if}}
     </div>
   </nav>

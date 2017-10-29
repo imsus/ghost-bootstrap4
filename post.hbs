@@ -6,7 +6,7 @@
   {{#if feature_image}}
     <div class="row justify-content-md-center mb-5">
       <div class="col-sm-9">
-        <img class="img-fluid" src="{{img_url feature_image}}">
+        <img class="img-fluid lozad bg-light d-block" width="825" style="min-height: 193px" data-src="{{img_url feature_image}}" alt="Featured image for article: {{title}}">
       </div>
     </div>
   {{/if}}
@@ -22,8 +22,8 @@
         <header class="post-header mb-4">
           <h1 class="post-title">{{title}}</h1>
           <div>
-            {{#if author.profile_image}}<img class="align-middle" src="{{author.profile_image}}" alt="Author image" width="18" height="18" />{{/if}}
-            <span class="align-middle">{{author}} on <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></span>
+            {{#if author.profile_image}}<img class="align-middle lozad" data-src="{{author.profile_image}}" alt="Author image" width="18" height="18" />{{/if}}
+            <span class="align-middle">{{#author}} <a class="text-dark" href="{{url}}">{{name}}</a> {{/author}} on <time class="post-date" datetime="{{date format='YYYY-MM-DD'}}">{{date format="DD MMMM YYYY"}}</time></span>
           </div>
         </header>
         <section class="post-content">
@@ -33,7 +33,7 @@
           <small class="d-block">Tagged in:</small>
           {{#if featured}}<span class="badge badge-warning align-middle">Featured</span>{{/if}}
           {{#foreach tags}}
-            <span class="badge badge-secondary align-middle"><a class="text-white" href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a></span>
+            <span class="badge badge-dark align-middle"><a class="text-white" href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a></span>
           {{/foreach}}
         </div>
       </article>
@@ -41,12 +41,12 @@
         <div class="row">
           <div class="col-md-6">
             {{#prev_post}}
-              <a href="{{url}}">&larr; {{title}}</a>
+              <a class="text-dark" href="{{url}}">&larr; {{title}}</a>
             {{/prev_post}}
           </div>
           <div class="col-md-6 text-right">
             {{#next_post}}
-              <a class="text-right" href="{{url}}">{{title}} &rarr;</a>
+              <a class="text-right text-dark" href="{{url}}">{{title}} &rarr;</a>
             {{/next_post}}
           </div>
         </div>
@@ -54,17 +54,17 @@
       {{#author}}
       <section>
         <div class="card">
-          <div class="card-body no-gutters d-flex">
-            <div class="col-md-1">
-              <img src="{{profile_image}}" alt="" width="49" width="49">
+          <div class="card-body row">
+            <div class="col-md-2">
+              <img class="lozad mb-4" data-src="{{profile_image}}" alt="Picture of {{name}}" width="73" width="73">
             </div>
-            <div class="col-md-11 pl-3">
-              <h4 class="card-title"><a href="{{url}}">{{name}}</a></h4>
+            <div class="col-md-10">
+              <h4 class="card-title"><a class="text-dark" href="{{url}}">{{name}}</a></h4>
               <h6 class="card-subtitle mb-2 text-muted">{{location}}</h6>
               <p class="card-text">{{bio}}</p>
-              <a href="{{website}}" class="card-link">Website</a>
-              <a href="{{facebook_url}}" class="card-link">{{facebook}}</a>
-              <a href="{{twitter_url}}" class="card-link">{{twitter}}</a>
+              <a class="text-dark card-link" href="{{website}}" data-toggle="tooltip" data-placement="bottom" title="Go to {{website}}">Website</a>
+              <a class="text-dark card-link" href="{{facebook_url}}" data-toggle="tooltip" data-placement="bottom" title="{{facebook}}">Facebook</a>
+              <a class="text-dark card-link" href="{{twitter_url}}" data-toggle="tooltip" data-placement="bottom" title="{{twitter}}">Twitter</a>
             </div>
           </div>
         </div>
